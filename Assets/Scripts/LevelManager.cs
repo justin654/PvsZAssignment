@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
                 
                 newCell.transform.parent = cellParent.transform;
 
-                Debug.Log(newCell.transform.position);
+                Debug.Log("Cell created at " + newCell.transform.position);
             }
         }
     }
@@ -37,5 +37,4 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-
 }
