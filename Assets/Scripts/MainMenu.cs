@@ -25,10 +25,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit Game"); 
     }
-
+    
     public void MuteMusic()
     {
-        isMuted = !isMuted; 
+        isMuted = !isMuted;
         if (backgroundMusic != null)
         {
             backgroundMusic.mute = isMuted;
@@ -41,9 +41,9 @@ public class MainMenu : MonoBehaviour
         TextMeshProUGUI buttonText = muteButton.GetComponentInChildren<TextMeshProUGUI>();
         if (buttonText != null)
         {
-            buttonText.color = isMuted ? Color.red : Color.white; // Red if muted, white if not
+            buttonText.text = isMuted ? "Muted" : "Mute";
+            buttonText.color = isMuted ? Color.red : Color.white; // Change color to red if muted, white when not
         }
     }
-
 }
 
