@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int gridWidth = 5;
     [SerializeField] private int gridHeight = 9;
 
+    public static List<float> rowYPositions = new List<float>(); // store row Y position for use in our spawner script
+    
     void Start()
     {
         for (int x = 0; x < gridWidth; x++)
@@ -16,10 +20,12 @@ public class LevelManager : MonoBehaviour
             for (int y = 0; y < gridHeight; y++)
             {
                 GameObject newCell = Instantiate(cellPrefab, new Vector3(x * 2, y * 2, 0), Quaternion.identity);
-                
-                newCell.transform.parent = cellParent.transform;
+                newCell.transform.SetParent(cellParent.transform, false);
 
-                Debug.Log("Cell created at " + newCell.transform.position);
+                if (x == 0)
+                {
+                    rowYPositions.Add(newCell.transform.position.y);
+                }
             }
         }
     }
