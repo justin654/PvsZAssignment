@@ -364,6 +364,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5801072437019011814, guid: d04ff49d71921304cbfc865be99cd959, type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584333232039150464, guid: d04ff49d71921304cbfc865be99cd959, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8695999483384424139, guid: d3329f9575160c147b47496257974d0c, type: 3}
+    - target: {fileID: 1584333232039150464, guid: d04ff49d71921304cbfc865be99cd959, type: 3}
+      propertyPath: minTimeBetweenProjectiles
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109614835104210239, guid: d04ff49d71921304cbfc865be99cd959, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6520316352602899752, guid: d04ff49d71921304cbfc865be99cd959, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -408,6 +424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PeaShooterPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 9191556907138091960, guid: d04ff49d71921304cbfc865be99cd959, type: 3}
+      propertyPath: m_TagString
+      value: Friendlies
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -423,7 +443,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 347419661818247340, guid: 22956fb659abe504298d147286a7f6c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.28
+      value: 15.83
       objectReference: {fileID: 0}
     - target: {fileID: 347419661818247340, guid: 22956fb659abe504298d147286a7f6c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -818,63 +838,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d727489176bf194b85fb4249d8e6a0f, type: 3}
---- !u!1001 &1082199777
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.058820438
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053782511579925683, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8695999483384424139, guid: d3329f9575160c147b47496257974d0c, type: 3}
-      propertyPath: m_Name
-      value: PeaPrefab
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d3329f9575160c147b47496257974d0c, type: 3}
 --- !u!1 &1106564516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1443,6 @@ SceneRoots:
   - {fileID: 1032476299}
   - {fileID: 1455100751}
   - {fileID: 319410338}
-  - {fileID: 1082199777}
   - {fileID: 287047667}
   - {fileID: 172685437}
   - {fileID: 485056288}
