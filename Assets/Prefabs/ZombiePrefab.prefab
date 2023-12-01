@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8684793148821640186}
   - component: {fileID: 2800653245552684981}
   - component: {fileID: 156011258723321596}
+  - component: {fileID: -811593945682813550}
   m_Layer: 0
   m_Name: ZombiePrefab
   m_TagString: Enemies
@@ -190,3 +191,24 @@ MonoBehaviour:
   health: 100
   deathEffectPrefab: {fileID: 0}
   deathEffectDuration: 2
+--- !u!95 &-811593945682813550
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279872826511939506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a981b89c5c15e64eae7f97ab5039c50, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

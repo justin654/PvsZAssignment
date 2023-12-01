@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3109614835104210239}
   - component: {fileID: -5801072437019011814}
   - component: {fileID: 1584333232039150464}
+  - component: {fileID: 2792537335561867090}
   m_Layer: 0
   m_Name: PeaShooterPrefab
   m_TagString: Friendlies
@@ -163,3 +164,24 @@ MonoBehaviour:
   minTimeBetweenProjectiles: 1
   maxTimeBetweenProjectiles: 3
   projectileOffset: {x: 0, y: 1.25, z: 0}
+--- !u!95 &2792537335561867090
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191556907138091960}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad57cd37c30a8644ba4b5f7339b53e86, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

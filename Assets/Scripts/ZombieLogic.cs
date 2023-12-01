@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.XR;
 using UnityEngine;
 
 public class ZombieLogic : MonoBehaviour
@@ -7,6 +8,8 @@ public class ZombieLogic : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private float damagePerBite = 25f;
     [SerializeField] private float biteInterval = 1f;
+
+    private bool CanMove = false;
 
     private Coroutine biteCoroutine;
 
@@ -18,7 +21,15 @@ public class ZombieLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        if (CanMove)
+        {
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+    }
+    
+    public void EnableMovement()
+    {
+        CanMove = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
