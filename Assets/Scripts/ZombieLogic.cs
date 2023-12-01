@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieLogic : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
-    [SerializeField] private float damagePerBite = 10f;
+    [SerializeField] private float damagePerBite = 25f;
     [SerializeField] private float biteInterval = 1f;
 
     private Coroutine biteCoroutine;
@@ -13,7 +13,6 @@ public class ZombieLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -21,12 +20,10 @@ public class ZombieLogic : MonoBehaviour
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(gameObject.name + " hit " + other.gameObject.name);
-
-        if (other.gameObject.CompareTag("Friendlies"))// using tags to check if we collide with plant
+        if (other.gameObject.CompareTag("Friendlies"))
         {
             biteCoroutine = StartCoroutine(Bite(other.gameObject));
         }
@@ -40,15 +37,20 @@ public class ZombieLogic : MonoBehaviour
             biteCoroutine = null;
         }
     }
-    
+
     private IEnumerator Bite(GameObject target)
     {
         while (true)
         {
+            if (target == null) // null check to see if go still exists to stop error
+            {
+                yield break; // if hits arrow, and arrow destroyed, stop coroutine
+            }
+
             Health health = target.GetComponent<Health>();
             if (health != null)
             {
-                Debug.Log("Bit for " + damagePerBite + "damage");
+                Debug.Log("Bit for " + damagePerBite + " damage");
                 health.Damage(damagePerBite);
             }
 

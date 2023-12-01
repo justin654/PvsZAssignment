@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlantSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject plantPrefab;
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnPlayer(Vector3 position_To_Spawn)
     {
-        
+        Instantiate(plantPrefab, position_To_Spawn, Quaternion.identity);
     }
 }
