@@ -423,7 +423,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 347419661818247340, guid: 22956fb659abe504298d147286a7f6c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.64
+      value: 4.28
       objectReference: {fileID: 0}
     - target: {fileID: 347419661818247340, guid: 22956fb659abe504298d147286a7f6c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -564,7 +564,7 @@ MonoBehaviour:
   zombiePrefab: {fileID: 1173265884}
   minSpawnTime: 1
   maxSpawnTime: 1
-  numberOfSpawns: 10
+  numberOfSpawns: 0
   spawnPoints:
   - {fileID: 1202156928}
   - {fileID: 708289860}

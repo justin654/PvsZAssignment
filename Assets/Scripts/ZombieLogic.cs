@@ -21,4 +21,33 @@ public class ZombieLogic : MonoBehaviour
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(gameObject.name + " hit " + other.gameObject.name);
+
+        if (other.gameObject.CompareTag("Plant"))// using tags to check if we collide with plant
+        {
+            biteCoroutine = StartCoroutine(Bite(other.gameObject));
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Plant") && biteCoroutine != null)
+        {
+            StopCoroutine(biteCoroutine);
+        }
+    }
+    
+    private IEnumerator Bite(GameObject plant)
+    {
+        while (true)
+        {
+            Debug.Log("Biting " + plant.name);
+
+            yield return new WaitForSeconds(biteInterval);
+        }
+    }
+
 }
