@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float minSpawnTime = 2f;
     [SerializeField] private float maxSpawnTime = 5f;
     [SerializeField] private int numberOfSpawns;
+    [SerializeField] private List<Transform> spawnPoints;
 
     private void Start()
     {
@@ -19,12 +21,10 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
 
-            if (LevelManager.rowYPositions.Count > 0)
+            if (spawnPoints.Count > 0)
             {
-                int randomRow = Random.Range(0, LevelManager.rowYPositions.Count);
-                Vector3 spawnPosition = new Vector3(transform.position.x, LevelManager.rowYPositions[randomRow], 0);
-
-                Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+                Instantiate(zombiePrefab, spawnPoint.position, Quaternion.identity);
             }
         }
     }
