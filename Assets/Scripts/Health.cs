@@ -25,7 +25,6 @@ public class Health : MonoBehaviour
             GameObject effect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
             Destroy(effect, deathEffectDuration);
         }
-
         Destroy(gameObject); // destroy go
     }
 }

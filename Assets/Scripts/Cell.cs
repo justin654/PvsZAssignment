@@ -1,20 +1,29 @@
 using UnityEngine;
 
-public class Cell : MonoBehaviour
+public class GridCell : MonoBehaviour
 {
-    private PlantSpawner plantSpawner;
+    private const string LogMessageFormat = "Grid cell clicked: {0}";
 
+    private PlantSpawner plantSpawnerInstance;
+ 
     private void Start()
     {
-        plantSpawner = FindObjectOfType<PlantSpawner>();
+        plantSpawnerInstance = FindObjectOfType<PlantSpawner>();
     }
-
+ 
     private void OnMouseDown()
+{
+    if (plantSpawnerInstance != null)
     {
-        if (plantSpawner != null)
-        {
-            Debug.Log("Cell clicked: " + gameObject.name);
-            plantSpawner.SpawnPlayer(transform.position);
-        }
+        LogGridCellClickMessage();
+        Vector3 spawnPosition = transform.position;
+        plantSpawnerInstance.SpawnPlayer(spawnPosition);
     }
+}
+
+private void LogGridCellClickMessage()
+{
+    string cellClickMessage = string.Format(LogMessageFormat, gameObject.name);
+    Debug.Log(cellClickMessage);
+}
 }
