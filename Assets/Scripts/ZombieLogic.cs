@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.XR;
 using UnityEngine;
 
 public class ZombieLogic : MonoBehaviour
@@ -8,34 +6,27 @@ public class ZombieLogic : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private float damagePerBite = 25f;
     [SerializeField] private float biteInterval = 1f;
-
-    private bool CanMove = false;
-
+    public bool canMove = false;
+    
     private Coroutine biteCoroutine;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (CanMove)
+        if (canMove)
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
     }
-    
-    public void EnableMovement()
+    public void HasSpawnedEnableMovement()
     {
-        CanMove = true;
+        canMove = true;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Friendlies"))
         {
+            canMove = false;
             biteCoroutine = StartCoroutine(Bite(other.gameObject));
         }
     }
@@ -46,6 +37,7 @@ public class ZombieLogic : MonoBehaviour
         {
             StopCoroutine(biteCoroutine);
             biteCoroutine = null;
+            canMove = true;
         }
     }
 
@@ -53,15 +45,16 @@ public class ZombieLogic : MonoBehaviour
     {
         while (true)
         {
-            if (target == null) // null check to see if go still exists to stop error
+            if (IsTargetNull(target))
             {
-                yield break; // if hits arrow, and arrow destroyed, stop coroutine
+                canMove = true; // Resume moving if the plant is destroyed
+                yield break;
             }
 
             Health health = target.GetComponent<Health>();
             if (health != null)
             {
-                Debug.Log("Bit for " + damagePerBite + " damage");
+                Debug.Log($"Bit for {damagePerBite} damage");
                 health.Damage(damagePerBite);
             }
 
@@ -69,4 +62,8 @@ public class ZombieLogic : MonoBehaviour
         }
     }
 
+    private bool IsTargetNull(GameObject target)
+    {
+        return target == null;
+    }
 }

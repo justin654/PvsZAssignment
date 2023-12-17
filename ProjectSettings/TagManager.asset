@@ -7,6 +7,7 @@ TagManager:
   - Plant
   - Friendlies
   - Enemies
+  - Projectile
   layers:
   - Default
   - TransparentFX
